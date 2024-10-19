@@ -13,8 +13,7 @@ skills = ["Стремительный прыжок",
           "Кислотный взгляд",
           "Тайный побег",
           "Ледяной выстрел",
-          "Огненный заряд"
-]
+          "Огненный заряд"]
 
 letters = {
     'а': 'а͠', 'б': 'б̋', 'в': 'в͒͠',
@@ -70,7 +69,8 @@ def main():
         }
 
         os.makedirs('output', mode=0o777, exist_ok=True)
-        file_operations.render_template("template/charsheet.svg", f"output/charsheet-{i}.svg", context)
+        file_operations.render_template("template/charsheet.svg",
+                                        f"output/charsheet-{i}.svg", context)
 
 
 if __name__ == '__main__':
