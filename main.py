@@ -4,7 +4,7 @@ import random
 import os
 
 
-fake = Faker('ru_RU')
+FAKE = Faker('ru_RU')
 
 SKILLS = ["Стремительный прыжок", "Электрический выстрел",
           "Ледяной удар", "Стремительный удар",
@@ -27,7 +27,7 @@ LETTERS = {
 }
 
 
-def main():
+def create_people():
     for i in range(1, 11):
         random_skills = random.sample(SKILLS, 3)
         runic_skills = []
@@ -39,10 +39,10 @@ def main():
             runic_skills.append(runic_skill)
 
         context = {
-            "first_name": f"{fake.first_name()}",
-            "last_name": f"{fake.last_name()}",
-            "job": f"{fake.job()}",
-            "town": f"{fake.city()}",
+            "first_name": f"{FAKE.first_name()}",
+            "last_name": f"{FAKE.last_name()}",
+            "job": f"{FAKE.job()}",
+            "town": f"{FAKE.city()}",
             "strength": f"{random.randint(3, 18)}",
             "agility": f"{random.randint(3, 18)}",
             "endurance": f"{random.randint(3, 18)}",
@@ -53,9 +53,12 @@ def main():
             "skill_3": f"{runic_skills[2]}"
         }
 
-        os.makedirs('output', mode=0o777, exist_ok=True)
-        file_operations.render_template("template/charsheet.svg",
-                                        f"output/charsheet-{i}.svg", context)
+        os.makedirs('Charsheet/output', mode=0o777, exist_ok=True)
+        file_operations.render_template("Charsheet/template/charsheet.svg", f"Charsheet/output/charsheet-{i}.svg", context)
+
+
+def main():
+    create_people()
 
 
 if __name__ == '__main__':
