@@ -1,4 +1,4 @@
-import file_operations
+from Charsheet.Charsheet import file_operations
 from faker import Faker
 import random
 import os
