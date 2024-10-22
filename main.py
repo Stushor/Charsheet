@@ -88,7 +88,7 @@ LETTERS = {
 
 def create_people():
     for i in range(1, 11):
-        random_skills = random.sample(SKILLS, 3)
+        random_skills = random.sample(skills, 3)
         runic_skills = []
 
         for skill in random_skills:
